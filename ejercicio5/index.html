@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.png" type=".png"/>
+    <title></title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+    <script>
+        let estudiar=confirm("¿Has estudiado?");
+        let ejercicios=confirm("¿Haces los ejercicios?");
+        let suerte=confirm("¿Eres una persona con suerte?");
+        let jamon=confirm("¿Le has regalado um jamón al profe?");
+        let copiar=confirm("¿Copiaste en el exámen?");
+       ((estudiar&&ejercicios)||(suerte||jamon))&& !copiar
+       ? alert("Apruebas")
+       :("Suspendes");
+
+    </script>
+</body>
+</html>
