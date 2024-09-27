@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNCION</title>
+    <script>
+        function sumaNumeros(num1,num2){
+            return num1+num2;
+        }
+
+        /*Los métodos d eun objeto se accionan con un punto (.). EL evento se desencadena y recibe la función que tiene que ejecutar. Directamente ponemos la fucnión anonima. Es aquella que no tiene nombre y se llama asignandola a otro evento. onload Es un evento de windows que carga toda la pçagina */
+        (function(num1,num2){
+            return num1+num2;
+
+        })(5,6);
+        /*window.onload lee el código primero para al final ejecutar todo. */
+        window.onload=function(){
+           texto.innerHTML="Hola mundo";
+        };
+
+    </script>
+</head>
+<body>
+<p id="texto"></p>
+    
+</body>
+</html>

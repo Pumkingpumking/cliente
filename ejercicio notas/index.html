@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script> 
+    /*if(nota>=9) alert("Has aprobado con un sobresaliente")
+    if(nota>=7) alert("Has aprobado con un notable")
+    if(nota>=5) alert("Has aprobado con un suficiente")
+    if(nota<5) alert("Has suspendido")*/
+    /*El signo + quiere decir que el valor de la variable será un entero
+    EJEMPLO: 
+    let nota=+prompt("Cuál es tu nota");*/
+     let nota=parseInt(prompt("Cuál es tu nota"));/*
+       function notas(){
+        nota<5?alert("Has suspendido"):
+        nota<7?alert("Has aprobado"):
+        nota<9?alert("Tienes un notable"):
+        alert("Tienes un sobresaliente");
+
+       }
+       notas();*/
+       window.onload=function(){
+        nota<5?texto.inneHTML="Has suspendido":
+        nota<7?texto.innerHTML="Has aprobado":
+        nota<9?texto.innerHTML="Tienes un notable":
+        texto.innerHTML="Tienes un sobresaliente";
+
+
+       };
+   
+  
+   
+
+
+       
+
+    
+    </script>
+</head>
+<body>
+    <h1>Nota del curso</h1>
+    <p id="texto"></p>
+</body>
+</html>
