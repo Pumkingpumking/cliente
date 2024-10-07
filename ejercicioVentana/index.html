@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ventana</title>
+</head>
+<script>
+window.onload=function(){
+	
+        boton1.onclick=abrirVentana=function(){
+            {
+            ventana= window.open(
+                "vacio.html"
+                ,"nombre"
+                ,"width=200,height=200,top=100,left=100,resizable=yes");
+			}
+		}
+		boton2.onclick=abrirVentana=function(){
+			ventana.resizeBy(400,400);
+		}
+		boton3.onclick=moverVentana=function(){
+			ventana.moveBy(100,100);
+		}
+		boton4.onclick=agrandarVentana=function(){
+			ventana.resizeTo(700,700);
+		}
+		boton5.onclick=cerrarVentana=function(){
+			(!ventana||ventana.closed)?alert("no hay ventana"):
+			ventana.resizeTo(700,700);
+		}
+		url.onblur=function(){
+			ventana.location=url.value;
+
+		}
+		
+
+
+		
+		
+
+
+	}   
+
+    </script>
+<body>
+    <button id="boton1">Abrir ventan</button>
+    <button id="boton2">Cambiar tamaño</button>
+	<button id="boton3">Mover Ventana</button>
+	<button id="boton4">Agrandar Ventana</button>
+	<button id="boton5">Cerrar ventana</button>
+	<label for="url">URL</label><input type="url" id="url" name="url">
+    
+</body>
+</html>
