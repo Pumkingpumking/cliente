@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inners</title>
+   <script>
+    window.onload=function(){
+        //HAY QUE DEFINIR LAS FUNCIONES CON LOS ELEMENTOS EN EL WINDOW.ONLOAD
+       contenido1.onclick=function1;
+       contenido2.onclick=function2;
+       contenido3.onclick=function3;
+       contenido4.onclick=function4;
+       contenido5.onclick=function5;
+
+    }
+            function function1(){
+            contenido1.textContent="hola que tal";
+
+        }
+        function function2(){
+            contenido2.innerHTML="<strong>Hola que tal</strong>";
+        }
+        function function3(){
+            //creamos una variable texto para que nos guarde el texto ya introducido en ese párrafo y después poder modificarlo
+            let texto=contenido3.textContent;
+            contenido3.outerHTML="<h1>"+texto+"</h1>";
+            /*contenido3.innerHTML="<h1>orem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure quas nostrum minima aut ipsam magni facilis aliquam consequuntur commodi in eveniet ab maiores praesentium, autem necessitatibus laboriosam consectetur eius.</h1>";*/
+        }
+        function function4(){
+           /*contenido4.innerHTML=" ";*/
+           //usamos la función outerHTML porque si usamos innerHTML no se borrará definitivamente el contenido de adentro
+           contenido4.outerHTML=" ";
+
+        }
+        function function5(){
+            contenido5.outerHTML+="<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati omnis assumenda ipsam rem voluptatum explicabo quam consequatur cumque incidunt quia officiis, ad, nostrum molestiae officia tempore quo animi quidem possimus</p>";
+            
+            
+        }
+
+
+
+   </script>
+   <style>
+    
+
+
+   </style>
+
+
+</head>
+
+<body>
+
+    
+    <div id="contenido1"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ad dolorum fugit accusantium quas totam quod dicta beatae at laborum sed ea facere, expedita cupiditate vel nemo sapiente quasi! Labore.</p></div>
+    
+    <div id="contenido2"><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus impedit excepturi sit ea nisi! Quia aliquam eaque molestiae. Blanditiis quidem voluptates excepturi magni similique unde sint amet ratione enim quae.</p></div>
+    
+    <div id="contenido3"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae dolorum in obcaecati architecto! Cumque molestias iusto et dolor quas? Ab ipsa sequi repellendus consequatur, sed quis sit in fugit quod?</p></div>
+   
+    <div id="contenido4"><p>orem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure quas nostrum minima aut ipsam magni facilis aliquam consequuntur commodi in eveniet ab maiores praesentium, autem necessitatibus laboriosam consectetur eius.</p></div>
+
+    <div id="contenido5"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, rem voluptatum earum aperiam minus officiis eligendi, doloremque perferendis dicta officia illo dolore eos adipisci ut quos eum a? Sint, voluptas</p></div>
+    
+</body>
+</html>
