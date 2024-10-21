@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CESTA DE LA COMPRA</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin:0;
+            padding: 0;
+
+        }
+        .contenedor0{
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+        .productos, .cesta{
+            width: 45%;
+            border: 1px solid brown;
+            padding: 20px;
+        }
+        .productos ul{
+            list-style: none;
+            padding: 0;
+        }
+        .productos li{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            border-bottom: 1px solid pink;
+            padding-bottom: 10px;
+        }
+        .productos button, .calcular{
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color:cadetblue;
+            border: 1px solid yellow;
+            border-radius: 15px;
+
+
+        }
+        table{
+            width: 100%;
+            
+        }
+        
+        th, td{
+            padding: 10px;
+            text-align: left;
+            border: 1px solid burlywood;
+        }
+        .total{
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .tiempo{
+            margin-top: 20px;
+            color: red;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            let cesta=producto.anadirProductoCesta();
+
+
+
+
+
+            let total=0;
+            let libroSi=false;
+            function anadirProductoCesta(){
+                calcular.textContent=productos(nombre,tipo,precio);
+            }
+            
+            for(let boton in productos){
+                boton.addEventListener('click',function(){
+                    let nombre=boton.getElementById('nombre');
+                    let precio=parseFloat(boton.getElementById('precio'));
+                    let tipo=boton.getElementById('tipo');
+                    let tipoIVA, precioSinIva;
+
+
+
+
+
+                    switch(tipo){
+                        case 'libro':
+                            tipoIVA=0.04;
+                            libroSi=true;
+                            break;
+                        case 'comida':
+                            tipoIVA=0.10;
+                            break;
+                        default:
+                            tipoIVA=0.21;
+                    }
+                    precioSinIva=(precio / (1+tipoIVA));
+                    let iva= (precio-precioSinIva);
+
+                    cestita.innerHTML += `<tr>
+                        <td>${nombre}</td>
+                        <td>${precioSinIva}€</td>
+                        <td>${tipoIVA*100}%</td>
+                        <td>${iva}€</td>
+                        <td>${precio}€</td>`;
+
+
+
+
+
+                        total+=precio;
+
+                        
+                    });
+            }
+            botonTotalFinal.addEventListener('click',function(){
+                let gastosEnvio=(libroSi || total>50)
+                ?0
+                :5.99;
+                let totalMasEnvio=total+gastosEnvio;
+                totalito.textContent=totalMasEnvio;
+
+            });
+            let tiempoRestante=90;
+            let intervalo=setInterval(()=>{
+                if(tiempoRestante<=0){
+                    clearInterval(intervalo);
+                    alert('La sesión ha expirado');
+                    cestita.innerHTML= '';
+                    total=0;
+                    libroSi=false;
+                    totalito.textContent='0.00';
+                }else{
+                    tiempito.textContent='Tiempo restante: ${tiempoRestante--} segundos';
+                }
+            }, 1000);
+            
+        };
+    
+
+
+    </script>
+</head>
+<body>
+    <div class="contenedor0">
+        <div class="productos">
+            <ul>
+                <li>
+                    <span>Miguel de Cervantes, El Quijo --- 22 €</span>
+                    <button nombre="El Quiejote" precio="22" tipo="libro" >Añadir</button>
+                </li>
+                <li>
+                    <span>Elisabet Benavent, Un cuento perfecto --- 17 €</span>
+                    <button nombre="Un cuento perfecto" precio="17" tipo="libro" >Añadir</button>
+                </li>
+                <li>
+                    <span>Lasaña a la Boloñesa --- 3,50 €</span>
+                    <button nombre="Lasaña a la boloñesa" precio="3.50" tipo="comida" >Añadir</button>
+                </li>
+                <li>
+                    <span>Kebab mixto --- 7 €</span>
+                    <button nombre="kebab mixto" precio="22" tipo="comida" >Añadir</button>
+                </li>
+                <li>
+                    <span>Pantalones Vaqueros, Levis --- 67 €</span>
+                    <button nombre="Pantalones Vaqueros" precio="67" tipo="ropa" >Añadir</button>
+                </li>
+                <li>
+                    <span>Chaqueta, Stradivarius --- 19,99 €</span>
+                    <button nombre="Chaqueta" precio="19.99" tipo="ropa" >Añadir</button>
+                </li>
+                
+                
+            </ul>
+            <button class="calcular">Calcular Total</button>
+        </div>
+        <div class="cesta">
+            <h2>Cesta</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio sin IVA</th>
+                        <th>Tipo de IVA</th>
+                        <th>Importe Total</th>
+                    </tr>
+                </thead>
+                <tbody id="cestita"></tbody>
+            </table>
+            <p class="total">Total: <span id="total">0.00</span>€</p>
+            <p class="tiempo" id="tiempo"></p>
+        </div>
+    </div>
+    
+</body>
+</html>
