@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HREF</title>
+    <style>
+        button{
+            color: white;
+            background-color: black;
+            margin: 0 auto;
+            width: 100px;
+
+        }
+    </style>
+    <script>
+       window.onload=function(){
+        
+
+
+       }
+       /*function localizar(indice){
+        switch(indice){
+            case 1:
+                location="https://www.elmundo.es/";
+                break;
+            case 2: 
+                location="https://elpais.com/";
+                break;
+            case 3: 
+                location="https://cdmfp.es/becas-y-ayudas/";
+                break;
+            default: 
+            
+        }*/
+        function localizar(indice){
+        switch(indice){
+            case 1:
+                /*la función assign tiene el mismo funcionamiento que location*/
+                location.assign("https://www.elmundo.es/");
+                break;
+            case 2: 
+                location.assign("https://elpais.com/");
+                break;
+            case 3: 
+            /*replace tiene la misma funcion que location y assign pero con la diferencia que al ir a la página que nos lleva el botón no nos dejará volver a la página anterior*/
+                location.replace("https://cdmfp.es/becas-y-ayudas");
+                break;
+            default: 
+            
+        }
+       
+       }
+       
+       
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+
+   <button onclick="localizar(1)">El  mundo</button>
+   <button onclick="localizar(2)">El  país</button>
+   <button onclick="localizar(3)">CDMFP</button>
+
+
+    
+</body>
+</html>
