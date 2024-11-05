@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.png" type=".png"/>
+    <title>EJERCICIO MARCAR PALABRA</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        window.onload=function(){
+            document.forms[0].addEventListener("submit",function(event){
+                //preventDefault: hace que la palabra que hemos insertado en el formulario no desaparezca al hacer click en el botón.
+                event.preventDefault();
+                //querySelector("p"): selecciona un elemento que este en html.
+                //innerText: al buscar otra palabra no me guarda la palabra que hemos buscado anteriormente, por lo cual enseñará subrayada la palabra que buscamos sin enseñar también la anterior buscada
+               let texto= document.querySelector("p").innerText;
+
+                //innerText: accede al formulario que tenemos, en este caso al tener solo un formulario ponemos 0 y nos selecciona el primer formulario. En caso de tener 2 formularios y querámos usar el segundo usariamos [1].
+               let palabra=document.forms[0].palabra.value;
+               console.log(texto);
+               //new RegExp(palabra,"g"):la g es para global y la i para insensibilidad con mayúsculas y minúsculas
+               const expresion=new RegExp(palabra,"g");
+               let nuevoTexto=texto.replace(expresion,"<mark>"+palabra+"</mark>");
+                document.querySelector("p").innerHTML=nuevoTexto;
+                
+                
+
+
+
+
+            })
+
+        }
+        
+    </script>
+    
+</head>
+<body>
+    <div class="contenedor">
+        <form>
+            <label for="palabra">Resaltar:</label>
+            <input type="text" id="palabra"><input type="submit" value="Marcar">
+        </form>
+        <br>
+        <p>El oeste de Texas divide la frontera entre Mexico y Nuevo México. Es muy bella pero aspera, llena de cactus, en esta region se encuentran las Davis Mountains. Todo el terreno esta lleno de piedra caliza, torcidos arboles de mezquite y espinosos nopales. Para admirar la verdadera belleza desertica, visite el Parque Nacional de Big Bend, cerca de Brownsville. Es el lugar favorito para los excurcionistas, acampadores y entusiastas de las rocas. Pequeños pueblos y ranchos se encuentran a lo largo de las planicies y cañones de esta region. El area solo tiene dos estaciones, tibia y realmente caliente. La mejor epoca para visitarla es de Diciembre a Marzo cuando los dias son tibios, las noches son frescas y florecen las plantas del desierto con la humedad en el aire.
+        </p>
+
+    </div>
+
+
+    <script type="text/javascript" src="js/javascript.js"></script>
+</body>
+</html>
