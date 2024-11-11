@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.png" type=".png"/>
+    <title>ERES BORRACHO O NO?</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body{
+            background-color: black;
+        }
+        .contenedor{
+            width: 450px;
+            height: 150px;
+            margin: auto;
+            text-align: center;
+            border: 15px solid salmon;
+            background-color: white;
+            margin-top: 30%;
+
+        }
+        h1{
+            margin-bottom: 30px;
+        }
+       
+    </style>
+    <script>
+        window.onload=function(){
+
+
+
+
+            document.forms[0].onsubmit=(event)=>{
+                event.preventDefault();
+                let suCumple=new Date(cumple.value);
+                let hoy=new Date();
+                hoy.setHours(0);
+                hoy.setMinutes(0);
+                hoy.setSeconds(0);
+                console.log(hoy);
+
+                let milisegundos=1000*60*60*24*365.25*18;
+                //alert(milisegundos);
+                fechaMayor=hoy.setFullYear(hoy.getFullYear()-18);
+                suCumple<=fechaMayor?solucion.innerHTML="Eres mayor de edad. Puedes beber":solucion.innerHTML="Eres menor de edad. No puedes beber";
+
+
+            }
+
+        }
+
+    </script>
+    
+</head>
+<body>
+    <div class="contenedor">
+        <h1>🍺🍺🍺🍺🍺🍺🍺🍺</h1>
+        <form action="#">
+
+        <label for="cumpleaños">Fecha de nacimiento</label> <input type="date" name="nacimiento" id="cumple" name="cumple"><input type="submit" value="Comprobar edad"></form>
+        <p id="solucion"></p>
+    </div>
+    <script type="text/javascript" src="js/javascript.js"></script>
+</body>
+</html>
