@@ -1,0 +1,61 @@
+body{
+    
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; 
+    height: 50vh;
+    margin: 0;
+}
+.contenedor{
+    margin: auto;
+    text-align: center;
+}
+h1{
+    margin-top: 100px;
+    font-size: 100px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+   
+}
+p{
+    font-size: 30px;
+}
+.jugador1{
+   border: 2px solid black;
+    width: 50%;
+    height: 700px;
+    margin: auto;
+    margin-top: 30px;
+    background-color: rgb(49, 84, 58);
+   
+}
+.jugador1 h2{
+    text-align: center;
+    font-size: 45px;
+
+}
+.jugador2{
+    border: 2px solid black;
+     width: 50%;
+     height: 700px;
+     margin: auto;
+     margin-top: 30px;
+     background-color: rgb(89, 138, 102);
+ }
+ .jugador2 h2{
+     text-align: center;
+     font-size: 45px;
+ 
+ }
+ img{
+    width: 100px;
+ }
+ button{
+    width: 150px;
+    height: 70px;
+    font-size: 25px;
+    background-color: green;
+ }
+ button:hover{
+    background-color:greenyellow;
+ }
+
