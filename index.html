@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codificación ana videla</title>
+    <style>
+        * {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        input {
+            background-color: cadetblue;
+            color: white;
+            padding: 5px 10px;
+            margin: 5px 0;
+            border: none;
+            cursor: pointer;
+        }
+        textarea {
+            width: 95%;
+            height: 100px;
+            margin: 5px 0;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            const botonCodificar = document.getElementById("codificar");
+            const botonDecodificar = document.getElementById("decodificar");
+
+            botonCodificar.onclick = function () { procesarTexto(0); };
+            botonDecodificar.onclick = function () { procesarTexto(1); };
+        };
+
+        function procesarTexto(accion) {
+            const textoEntrada = document.getElementById("texto");
+            const textoSalida = document.getElementById("codificado");
+
+            let texto = textoEntrada.value.trim();
+            let resultado = "";
+            let clave;
+
+            if (texto === "") {
+                alert("Por favor, ingresa un texto.");
+                return;
+            }
+
+            if (accion === 0) {
+                clave = Math.floor(Math.random() * 100);
+                for (let i = 0; i < texto.length; i++) {
+                    let codigoUnicode = texto.charCodeAt(i);
+                    //charCodeAt sirve para que nos devuelva el valor numérico que ocupa caracter en una posición especifica. Con esto podemos especificarle un número concreto a la cadena de caracteres que introduciremos en el textarea el cual se va a codificar después.
+                    resultado += String.fromCharCode(codigoUnicode + clave);
+                    //fromCharCode sirve para generar la cadena de códigos que aparecera cuando se codifique el texto introducido anteriormente
+                }resultado += String.fromCharCode(clave);
+            } else {
+                clave = texto.charCodeAt(texto.length - 1);
+                texto = texto.slice(0, -1);
+                //slice sirve para quitar una parte de una cadena sin tener que cambiar la cadena original.(devuelve una cadena nueva)
+                //cada vez que le de al boton de decodificar va a aparecer un código diferente y así todo el rato cada vez que le de al mismo botón
+                for (let i = 0; i < texto.length; i++) {
+                    let codigoUnicode = texto.charCodeAt(i);
+                    resultado += String.fromCharCode(codigoUnicode - clave);
+                }
+            }
+
+            textoSalida.value = resultado;
+        }
+    </script>
+</head>
+<body>
+    <form action="#">
+        <textarea id="texto" placeholder="Escribe el texto que quieras codificar o decodificar"></textarea>
+        <textarea id="codificado" placeholder="Resultado"></textarea>
+        <br>
+        <input type="button" value="Codificar" id="codificar">
+        <input type="button" value="Decodificar" id="decodificar">
+    </form>
+</body>
+</html>
