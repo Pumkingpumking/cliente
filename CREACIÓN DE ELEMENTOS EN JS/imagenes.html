@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>imagenes</title>
+    <script>
+        
+        let imagenes=[/*array con imagenes*/
+                '../img/perrito.png',
+                '../img/perrito1.png',
+                '../img/perrito2.png',
+                '../img/perrito3.png',
+                '../img/perrito4.png',
+                '../img/perrito5.png',
+                '../img/perrito6.png',
+                '../img/perrito7.png',
+                '../img/perrito8.png',
+                '../img/perrito9.png',
+        ]
+        window.onload=function(){
+            let imagenGrande=document.createElement("img");
+            imagenGrande.src=imagenes;
+            document.querySelectorAll("div")[1].appendChild(imagenGrande);
+
+            /*Hacemos un forEach para que por cada imagen se cree un div nuevo*/
+            imagenes.forEach((valor)=>{
+                /*Creamos el elemento img*/
+                let imagen=document.createElement("img");
+                /*Le asignamos el valor que serían las imagenes del array imagenes*/
+                imagen.width="350";
+                imagen.src=valor;
+                /*Le asignamos el elemento a las imagenes*/
+                document.querySelector("div").appendChild(imagen);
+                //En este onclick cada vez que pulsemos una imagen esta se añadirá al div de abajo y se eleminará de arriba
+                imagen.onclick=function(){
+                    //.removeChild: elimina el elemento
+                    //le asignamos el elemento donde queremos que se posicionen las imagenes
+                    document.querySelector("div").removeChild
+                    (imagen);
+                    //tienen el mismo valor que en el foreach
+                    imagenGrande.src=valor;
+                    //Asignar anchura a la imagen
+                    imagenGrande.width="900";
+
+                    
+                    
+                    
+                }
+                
+
+                
+
+
+
+
+                
+            })
+
+
+            /*let imagen=document.createElement("img");
+            iamgen.src=imagenes;
+            document.body.appendChild(imagen)*/
+            
+
+        
+        }
+
+
+
+
+
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    
+</body>
+</html>

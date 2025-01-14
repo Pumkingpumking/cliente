@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREAR PARRAFO</title>
+    <script>
+      window.onload=function(){
+        /*PONER ELEMENTOS Y TEXTO CON JS*/
+        /*1º.Creamos un elemento. En este caso es un párrafo*/
+       let nuevoParrafo=document.createElement("p");
+        /*2º. Escribimos el texto que querrámos dentro del párrafo. Para ello debemos usar .createTextNode*/
+        nuevoTexto=document.createTextNode("Hola,Mundo");
+        
+        /*3º.Lo meetemos al texto ya que es un nodo. De esta forma los estaríamos uniendolo al elemento*/
+        nuevoParrafo.appendChild(nuevoTexto);
+        /*4º. Pero después lo debemos meter a un elemento html. Ya que no tenemos creado ninguno usamos body*/
+        document.body.appendChild(nuevoParrafo);
+
+        /*También podemos hacerlo así para ahorrarnos el paso 2º y 3º:*/
+       // nuevoParrafo.innerHTML="Hola,mundo";
+       //que meterá un contenido dentro de un elemento
+
+       
+        /*PONER IMÁGEN CON JS*/
+        /*1º.Crear el elemento imagen*/
+        let imagen=document.createElement("img");
+        /*2º.Añadimos la imagen*/
+        imagen.src="../img/perrito.jpg";
+        /*Añadimos un nuevo elemento como nuevo hijo de este elemento. En este caso se añade al body*/
+        document.body.appendChild(imagen);
+        
+      }
+     
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
