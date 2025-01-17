@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.png" type=".png"/>
+    <title></title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        div{
+            color: red;
+        }
+        .verde{
+            color: green;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            //.classList: devuelve las clases que tiene aplicada cada elemento.
+            //
+            //alert(document.querySelector("div").classList);
+        
+           document.querySelector("div").onclick=function(){
+            //Esto elimina la clase.
+            //.className es un string que contiene todas las clases.
+            //document.querySelector("div").className="";
+            //con .remove eliminamos una clase específica
+            //document.querySelector("div").classList.remove("miClase");
+
+
+
+            //con add añadimos una clase nueva. Para ello tenemos que tener la clase que verde en css con algun estilo. Este programa nos permite que al hacer click en Hola, Mundo se cambia a color Verde
+            //document.querySelector("div").classList.add("verde");
+            //.toggle comprueba que el color verde ya est y vuelve al rojo y viceversa
+            document.querySelector("div").classList.toggle("verde");
+            //esto nos devuelve en forma de alert la clase de un elemento en caden. En este caso sería miClase
+            alert(document.querySelector("div").classList[0])
+            
+            
+            //alert(document.querySelector("div").classList) esto nos dice las clases que estan dentro de un elemento
+           }
+
+
+
+
+           };
+        
+
+
+
+
+
+
+    </script>
+    
+</head>
+<body>
+    <div class="miClase">Hola, Mundo</div>
+    <script type="text/javascript" src="js/javascript.js"></script>
+</body>
+</html>
