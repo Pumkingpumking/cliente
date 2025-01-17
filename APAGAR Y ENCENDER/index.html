@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.png" type=".png"/>
+    <title></title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        div{
+            border: 2px solid black;
+            width: 20px;
+            height: 20px;
+            margin: auto ;
+            margin-top: 100px;
+
+        }
+        .apagado{
+            border: 2px solid white;
+            width: 20px;
+            height: 20px;
+            margin: auto ;
+            margin-top: 100px;
+            border-radius: 100px;
+
+           
+
+        }
+        .oscuro{
+            background-color: black;
+        }
+       
+
+
+    </style>
+
+    <script>
+        window.onload=function(){
+            document.querySelector("div").onclick=function(){
+                //agregamos al div los estilos para cuando se apague de la clase apagado.Este estilo solo se va a cambiar en el cuadrado
+
+                document.querySelector("div").classList.toggle("apagado");
+                //aquí agregamos los estilos para fondo que tiene que ser negro
+                document.querySelector("body").classList.toggle("oscuro");
+                
+                
+
+            }
+        }
+
+    </script>
+    
+</head>
+<body>
+    <div class="encendido"></div>
+    
+
+    <script type="text/javascript" src="js/javascript.js"></script>
+</body>
+</html>
