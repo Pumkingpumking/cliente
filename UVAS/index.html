@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.png" type=".png"/>
+    <title>Caída de Uvas</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .caer {
+            animation: caerUva 2s  ;
+        }
+
+        @keyframes caerUva {
+            0% {
+                transform: translateY(0);
+               
+            }
+            100% {
+                transform: translateY(100vh);
+                
+            }
+        }
+    </style>
+    <script>
+        
+        let imagenes = [
+            "img/uvitas.png",
+            "img/uvitas.png",
+            "img/uvitas.png",
+            "img/uvitas.png",
+        ];
+
+        window.onload = function () {
+            let div=document.querySelector("div");
+
+            imagenes.forEach((src)=>{
+                const imagen = document.createElement("img"); 
+                imagen.width = "360"; 
+                imagen.src = src; 
+                imagen.onclick=function(){
+
+                    imagen.classList.add("caer"); 
+                    
+                };
+                div.appendChild(imagen);
+            });
+        };
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
