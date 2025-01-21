@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquina Tragaperras</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        .contenedor {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .casilla {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            margin: 0 5px;
+            background-size: cover;
+            background-position: center;
+        }
+        .texto {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        /*he creado para cada imagen una clase diferente*/
+        .bar{
+            background-image: url('img/bar.png'); 
+        }
+        .campana{ 
+            background-image: url('img/campana.png');
+        }
+        .cereza{ 
+            background-image: url('img/cereza.png');
+        }
+        .corazon{ 
+            background-image: url('img/corazon.png');
+        }
+        .diamante{ 
+            background-image: url('img/diamante.png');
+        }
+        .herradura{ 
+            background-image: url('img/herradura.png');
+        }
+        .limon{ 
+            background-image: url('img/limon.png');
+        }
+        .manzana{ 
+            background-image: url('img/manzana.png');
+        }
+        .moneda{ 
+            background-image: url('img/moneda.png');
+        }
+        .naranja{ 
+            background-image: url('img/naranja.png');
+        }
+        .sandia{ 
+            background-image: url('img/sandia.png');
+        }
+        .siete{ 
+            background-image: url('img/siete.png');
+        }
+        .sorpresa{
+             background-image: url('img/sorpresa.png');
+        }
+        .trebol{
+             background-image: url('img/trebol.png');
+            }
+        .uva{ 
+            background-image: url('img/uva.png');
+        }
+        .uvas{ 
+            background-image: url('img/uvas.png');
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            //crear array con los nombres de las clases que tienen las imagenes de cada elemento
+            let clases = ['bar','campana','cereza','corazon','diamante','herradura','limon','manzana','moneda','naranja','sandia','siete','sorpresa','trebol','uva','uvas',];
+
+            // crear div
+            let contenedor = document.createElement("div");
+            //añadir la clase contenedor que la he creado en css
+            contenedor.classList.add("contenedor")
+            //aqui estoy añadiendo la clase contenedor al body
+            document.body.appendChild(contenedor);
+
+            //casillas representará los 3 divs donde estan las imagenes, en forma de una array para que cada div genere una imagend de forma aleatoria
+
+            let casillas=[];
+            for (let i=0;i<3;i++) {
+                let casilla=document.createElement("div");
+                casilla.classList.add("casilla");
+
+
+                contenedor.appendChild(casilla);
+                casillas.push(casilla);
+            }
+             //creo un boton para jugar
+            let button=document.createElement("button");
+            button.textContent="Jugar";
+            document.body.appendChild(button);
+
+            //esto representa el texto que aparecerá si pierdo o ganao
+            let texto=document.createElement("div");
+            texto.classList.add("texto");
+            document.body.appendChild(texto);
+
+            //esta funcion hace que por cada casilla se genere una imagen diferente aleatoriamente
+            function girar(){
+                let resultados=[];
+                casillas.forEach(casilla=>{
+                    // Elimino la clase anterior para que enseñe una nueva
+                    casilla.classList.remove(clases);
+
+                    
+                    let aleatorio=Math.floor(Math.random()*clases.length);
+                    let seleccion=clases[aleatorio];
+                    casilla.classList.add(seleccion);
+                    //el metodo push añade a la clase el resultado que será una nueva imagen
+                    resultados.push(seleccion);
+                });
+                if(resultados[0]===resultados[1] && resultados[1]===resultados[2]) {
+                    texto.textContent="¡¡PREMIO!!";
+                } else{
+                    texto.textContent="SIGUE INTENTÁNDOLO";
+                }
+            }
+            //boton para girar de nuevo
+            button.addEventListener("click", girar);
+        };
+    </script>
+</head>
+<body>
+    <h1>CIRSA</h1>
+</body>
+</html>
