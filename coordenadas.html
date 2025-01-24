@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 2px solid black;
+            width: 600px;
+            height:600px;
+            margin: auto ;
+            margin-top: 100px;
+            position: absolute;
+            font-size: 30px;
+
+
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            const elemento=document.querySelector("div");
+            elemento.onmouseover=capturar;
+            elemento.onmouseleave=capturar;
+}
+            function capturar(event){
+                cliente=event.clientX;
+                caja=event.offsetX;
+                pantalla=event.screenX;
+                
+                event.type=="mouseover"?tipo="entrado":tipo="salido";
+                event.target.innerHTML=`Ha entrado en la caja por navegador ${cliente} y en el caja ${caja} y por pantalla ${pantalla}`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               /*let nuevoParrafo=document.createElement("p");
+               nuevoParrafo=document.createTextNode("La caja: "+event.screenX);
+               document.body.appendChild(nuevoParrafo);*/
+                
+                
+                
+                
+            }
+        
+    </script>
+</head>
+<body>
+    <div>
+        <h1><strong>Salida</strong> del eje X con respecto a:</h1>
+        
+        
+    </div>
+</body>
+</html>
