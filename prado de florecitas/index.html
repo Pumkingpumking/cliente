@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prado de florecitas</title>
+    <style>
+        #campo{
+            width: 600px;
+            height: 600px;
+            margin-left: 1000px;
+            position: absolute;
+            background-color: green;
+        }
+        span{
+  width: 15px;
+  height: 15px;
+  position: absolute;
+}
+    </style>
+    <script>
+        window.onload=function(){
+            document.getElementById("campo").onclick=function(){
+                posx=event.offsetX;
+                posy=event.offsetY;
+                florecita=document.createElement("span");
+                (Math.random()*2>1)?florecita.innerHTML="🌸":florecita.innerHTML="🪻";
+                document.getElementById("campo").appendChild(florecita);
+                florecita.style.top=posy+"px";
+                florecita.style.left=posx+"px";
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div id="campo"></div>
+    
+</body>
+</html>
